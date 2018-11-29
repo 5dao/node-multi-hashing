@@ -37,6 +37,8 @@ Algorithms
 * sha256d
 * lbry
 
++ blake2b 
+
 Usage
 -----
 
