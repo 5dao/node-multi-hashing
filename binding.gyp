@@ -6,6 +6,8 @@
                 "multihashing.cc",
                 "bcrypt.c",
                 "blake.c",
+                "blake2b.cc",
+                "blake2/sse/blake2b.c",
                 "boolberry.cc",
                 "c11.c",
                 "cryptonight.c",
