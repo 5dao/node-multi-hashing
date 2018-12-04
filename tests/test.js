@@ -1,0 +1,10 @@
+const multiHashing = require('../build/Release/multihashing')
+
+
+let has = multiHashing.blake2b(Buffer.from('01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff1d5104c809015c0818000000000000000d2f6e6f64655374726174756d2f000000000100f2052a010000001a76a914f1627777996288556166614462639988446255776688ac00000000', 'hex'));
+
+console.log(has.toString('hex'));
+
+let has2 = multiHashing.blake2b(has);
+
+console.log(has2.toString('hex'));
