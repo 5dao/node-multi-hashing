@@ -206,7 +206,8 @@ int blake2b_init_param(blake2b_state *S, const blake2b_param *P)
   /* IV XOR ParamBlock */
   memset(S, 0, sizeof(blake2b_state));
 
-  for (int i = 0; i < BLAKE2B_OUTBYTES; ++i)
+  int i;
+  for (i = 0; i < BLAKE2B_OUTBYTES; ++i)
     h[i] = v[i] ^ p[i];
 
   return 0;
