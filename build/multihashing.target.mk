@@ -22,18 +22,20 @@ CFLAGS_Debug := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-m64 \
+	-D_GNU_SOURCE -maes -fPIC -Ofast -flto -fuse-linker-plugin -funroll-loops -funswitch-loops -fpeel-loops \
 	-g \
 	-O0
 
 # Flags passed to only C files.
-CFLAGS_C_Debug :=
+CFLAGS_C_Debug := \
+	-std=c99
 
 # Flags passed to only C++ files.
 CFLAGS_CC_Debug := \
 	-fno-rtti \
 	-fno-exceptions \
 	-std=gnu++1y \
-	-std=c++0x
+	-std=c++0x -maes -march=native
 
 INCS_Debug := \
 	-I/home/dao/.node-gyp/10.13.0/include/node \
@@ -62,18 +64,19 @@ CFLAGS_Release := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-m64 \
-	-O3 \
-	-fno-omit-frame-pointer
+	-D_GNU_SOURCE -maes -fPIC -Ofast -flto -fuse-linker-plugin -funroll-loops -funswitch-loops -fpeel-loops \
+	-O3
 
 # Flags passed to only C files.
-CFLAGS_C_Release :=
+CFLAGS_C_Release := \
+	-std=c99
 
 # Flags passed to only C++ files.
 CFLAGS_CC_Release := \
 	-fno-rtti \
 	-fno-exceptions \
 	-std=gnu++1y \
-	-std=c++0x
+	-std=c++0x -maes -march=native
 
 INCS_Release := \
 	-I/home/dao/.node-gyp/10.13.0/include/node \
@@ -189,12 +192,14 @@ $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cpp FORCE_DO_CMD
 LDFLAGS_Debug := \
 	-pthread \
 	-rdynamic \
-	-m64
+	-m64 \
+	-fPIC -Ofast -flto -fuse-linker-plugin
 
 LDFLAGS_Release := \
 	-pthread \
 	-rdynamic \
-	-m64
+	-m64 \
+	-fPIC -Ofast -flto -fuse-linker-plugin
 
 LIBS :=
 
