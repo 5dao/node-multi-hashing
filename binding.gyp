@@ -65,7 +65,8 @@
                 "crypto",
             ],
             "cflags_cc": [
-                "-std=c++0x"
+                "-std=c++0x",
+                "-maes"
             ],
              "cflags_c": [
                 "-std=c99"
