@@ -107,7 +107,7 @@ OBJS := \
 	$(obj).target/$(TARGET)/nist5.o \
 	$(obj).target/$(TARGET)/quark.o \
 	$(obj).target/$(TARGET)/qubit.o \
-	$(obj).target/$(TARGET)/scryptjane.o \
+	 
 	$(obj).target/$(TARGET)/scryptn.o \
 	$(obj).target/$(TARGET)/sha1.o \
 	$(obj).target/$(TARGET)/sha256d.o \

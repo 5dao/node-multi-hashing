@@ -20,7 +20,7 @@ extern "C"
 #include "nist5.h"
 #include "quark.h"
 #include "qubit.h"
-#include "scryptjane.h"
+ 
 #include "scryptn.h"
 #include "sha1.h"
 #include "sha256d.h"
@@ -210,33 +210,6 @@ DECLARE_FUNC(scryptn)
     SET_BUFFER_RETURN(output, 32);
 }
 
-DECLARE_FUNC(scryptjane)
-{
-    DECLARE_SCOPE;
-
-    if (args.Length() < 5)
-        RETURN_EXCEPT("You must provide two argument: buffer, timestamp as number, and nChainStarTime as number, nMin, and nMax");
-
-    Local<Object> target = args[0]->ToObject();
-
-    if (!Buffer::HasInstance(target))
-        RETURN_EXCEPT("First should be a buffer object.");
-
-    int timestamp = args[1]->Int32Value();
-    int nChainStartTime = args[2]->Int32Value();
-    int nMin = args[3]->Int32Value();
-    int nMax = args[4]->Int32Value();
-
-    char *input = Buffer::Data(target);
-    char output[32];
-
-    uint32_t input_len = Buffer::Length(target);
-
-    scryptjane_hash(input, input_len, (uint32_t *)output, GetNfactorJane(timestamp, nChainStartTime, nMin, nMax));
-
-    SET_BUFFER_RETURN(output, 32);
-}
-
 DECLARE_FUNC(cryptonight)
 {
     DECLARE_SCOPE;
@@ -375,7 +348,7 @@ DECLARE_INIT(init)
     NODE_SET_METHOD(exports, "quark", quark);
     NODE_SET_METHOD(exports, "qubit", qubit);
     NODE_SET_METHOD(exports, "scrypt", scrypt);
-    NODE_SET_METHOD(exports, "scryptjane", scryptjane);
+  
     NODE_SET_METHOD(exports, "scryptn", scryptn);
     NODE_SET_METHOD(exports, "sha1", sha1);
     NODE_SET_METHOD(exports, "sha256d", sha256d);

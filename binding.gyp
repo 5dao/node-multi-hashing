@@ -21,7 +21,7 @@
                 "nist5.c",
                 "quark.c",
                 "qubit.c",
-                "scryptjane.c",
+               
                 "scryptn.c",
                 "sha1.c",
                 "sha256d.c",

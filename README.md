@@ -16,7 +16,7 @@ Algorithms
 * nist5
 * scrypt
 * scryptn
-* scryptjane
+ 
 * keccak
 * bcrypt
 * skein
